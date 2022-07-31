@@ -1,12 +1,33 @@
 const color = document.querySelector("#color");
-const seleccion = document.querySelector("#salida");
+const salida = document.querySelector("#salida");
 
-color.addEventListener("input" , ()=> {
-    const value = color.value;
+const storage = localStorage.getItem("colorValue") || "#ffffff";
+
+color.value = storage;
+// const colorList= [];
+
+// localStorage.setItem("colorValue","#ffffff")
+console.log(color.value)
+
+const setColor = () => {
+     const value = color.value;
     // console.log(value)
     salida.innerHTML = value;
     salida.style.background =value;
-    salida.style.color = "#fff";
-});
+    // salida.style.color = "#ffffff";
+}
 
-console.log(color)
+const saveColor = (value) => {
+    // colorList.push(value);
+    localStorage.setItem("colorValue",value);
+    // localStorage.setItem("colorValue",JSON.stringify(colorList));
+};
+
+setColor();
+
+color.addEventListener("input" , setColor);
+
+color.addEventListener("change", () =>{ 
+    saveColor(color.value);
+});
+// console.log(color)
