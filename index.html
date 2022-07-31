@@ -1,21 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/normalize.css"/>
-    <link rel="stylesheet" href="./styles/style.css"/>
-    <link rel="shortcut icon" href="./assets/javascript.ico" type="image/x-icon">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ColorPicker</title>
-</head>
-<body onload="setColor()">
-    <h2>Paleta de Colores</h2>
+
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+
+    <!-- Icono -->
+    <link
+      rel="shortcut icon"
+      href="./assets/javascript.ico"
+      type="image/x-icon"
+    />
+
+    <script src="./js/setColor.js"></script>
+    <script src="./js/saveColor.js"></script>
+    <script src="./js/getColors.js"></script>
+
+    <!-- <script src="./js/build/setColor.bundle.js"></script>
+    <script src="./js/build/saveColor.bundle.js"></script> -->
+  </head>
+  <body>
+    <h2>Paleta de colores</h2>
+
     <div class="salida" id="salida">#ffffff</div>
 
     <div class="color-div">
-        <input type="color" id="color" value="#ffffff"/>
+      <input type="color" id="color" value="#ffffff" />
+      <button onclick="saveColor(color.value)">Save Color</button>
     </div>
+
+    <div>
+      <h2>Colores Guardados: <span id="colors">0</span></h2>
+      <ul id="list"></ul>
+    </div>
+
+    <script src="./js/variables.js"></script>
     <script src="./js/color.js"></script>
-</body>
+
+    <!-- <script src="./js/build/variables.bundle.js"></script>
+    <script src="./js/build/color.bundle.js"></script> -->
+  </body>
 </html>
